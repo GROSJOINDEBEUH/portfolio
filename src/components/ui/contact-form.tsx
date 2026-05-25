@@ -112,7 +112,7 @@ export function ContactForm() {
           id="message"
           name="message"
           required
-          rows={5}
+          rows={8}
           placeholder="D&eacute;crivez votre projet, vos objectifs, votre timeline&hellip;"
           className={`${INPUT_BASE} resize-none`}
         />

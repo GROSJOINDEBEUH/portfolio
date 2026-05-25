@@ -46,7 +46,7 @@ function SectionHeader() {
       <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
         Discutons de votre projet
       </h2>
-      <p className="mt-4 max-w-xl text-lg text-muted-foreground">
+      <p className="mt-4 max-w-xl text-center text-lg text-muted-foreground">
         Une id&eacute;e, un projet, une question&nbsp;? Je suis disponible
         imm&eacute;diatement &mdash; parlons-en.
       </p>
@@ -192,7 +192,7 @@ export function Contact() {
         <div className="mx-auto max-w-5xl">
           <SectionHeader />
 
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <ContactInfoColumn />
             <ContactForm />
           </div>
