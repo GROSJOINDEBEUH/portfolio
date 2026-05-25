@@ -25,7 +25,7 @@ export function Header() {
         <Link
           href="/"
           aria-label="Retour à l'accueil"
-          className="shrink-0 transition-opacity hover:opacity-75"
+          className="flex h-10 shrink-0 items-center hover:opacity-75"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -34,7 +34,7 @@ export function Header() {
             height={40}
             width={160}
             priority
-            style={{ height: '40px', width: 'auto' }}
+            className="h-10 w-auto"
           />
         </Link>
 
