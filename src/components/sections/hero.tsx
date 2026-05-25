@@ -99,12 +99,9 @@ export function Hero() {
         </div>
 
         {/* Scroll hint */}
-        <div className="mt-20 flex justify-center">
-          <div className="flex flex-col items-center gap-2 text-xs text-muted-foreground/50">
-            <div
-              className="h-8 w-px bg-gradient-to-b from-transparent via-muted-foreground/30 to-transparent"
-              style={{ animation: 'pulse 2s ease-in-out infinite' }}
-            />
+        <div aria-hidden="true" className="mt-20 flex justify-center">
+          <div className="flex animate-bounce flex-col items-center gap-2 text-xs text-muted-foreground/50">
+            <div className="h-8 w-px bg-gradient-to-b from-transparent via-muted-foreground/30 to-transparent" />
             <span className="uppercase tracking-widest">Scroll</span>
           </div>
         </div>

@@ -209,7 +209,7 @@ function SkillBox({
     <div className="group rounded-xl border border-border bg-zinc-900/30 p-5 transition-[border-color,background-color,box-shadow] duration-300 hover:border-primary/25 hover:bg-zinc-900/60 hover:shadow-lg hover:shadow-black/20">
       <div className="mb-4 flex items-center gap-3">
         <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary/50 text-primary transition-colors group-hover:border-primary/30 group-hover:bg-primary/10">
-          <Icon className="h-4 w-4" strokeWidth={1.75} />
+          <Icon className="h-4 w-4" strokeWidth={1.5} />
         </div>
         <h3 className="text-sm font-semibold text-foreground">{label}</h3>
       </div>
@@ -241,7 +241,7 @@ export function About() {
     <section id="apropos" className="px-6 py-24">
       {/* Subtle top divider */}
       <div className="mx-auto mb-0 max-w-5xl">
-        <div className="mb-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="mb-16 h-px bg-gradient-to-r from-transparent via-border to-transparent md:mb-24" />
       </div>
 
       <div className="mx-auto max-w-5xl">

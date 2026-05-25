@@ -66,10 +66,10 @@ function ContactInfoCard({
     <Link
       href={href}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      className="group flex items-center gap-4 rounded-xl border border-border bg-zinc-900/30 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-zinc-900/60 hover:shadow-md hover:shadow-black/20"
+      className="group flex items-center gap-4 rounded-xl border border-border bg-zinc-900/30 p-5 transition-[border-color,background-color,box-shadow] duration-300 hover:border-primary/30 hover:bg-zinc-900/60 hover:shadow-md hover:shadow-black/20"
     >
       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-secondary/50 text-primary transition-colors group-hover:border-primary/30 group-hover:bg-primary/10">
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
+        <Icon className="h-5 w-5" strokeWidth={1.5} />
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/60">
@@ -156,7 +156,7 @@ function PageFooter() {
             href={siteConfig.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground transition-all hover:border-border hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground transition-[border-color,color] hover:border-border hover:text-foreground"
             aria-label="LinkedIn"
           >
             <LinkedInIcon className="h-4 w-4" />
@@ -165,7 +165,7 @@ function PageFooter() {
             href={siteConfig.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground transition-all hover:border-border hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-muted-foreground transition-[border-color,color] hover:border-border hover:text-foreground"
             aria-label="GitHub"
           >
             <GitHubIcon className="h-4 w-4" />
@@ -188,7 +188,7 @@ export function Contact() {
     <>
       <section id="contact" className="px-6 py-24">
         {/* Subtle top divider */}
-        <div className="mx-auto mb-24 max-w-5xl">
+        <div className="mx-auto mb-16 max-w-5xl md:mb-24">
           <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         </div>
 
