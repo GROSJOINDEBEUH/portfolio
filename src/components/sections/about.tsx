@@ -19,8 +19,8 @@ const SKILLS = [
   {
     id: 'systeme',
     icon: Cpu,
-    label: 'Système & Outils',
-    items: ['Git', 'Hardware PC', 'Réseau FTTH', 'Support IT N1'],
+    label: 'Outils de Développement',
+    items: ['Git / GitHub', 'Vercel', 'VS Code', 'Terminal / Bash', 'Figma'],
   },
 ] as const;
 
