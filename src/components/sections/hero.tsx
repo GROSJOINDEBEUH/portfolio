@@ -42,7 +42,7 @@ export function Hero() {
       </div>
 
       {/* ── Content ──────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto w-full max-w-4xl text-center">
+      <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
 
         {/* Surtitre / Badge */}
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
