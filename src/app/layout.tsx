@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react';
 import { siteConfig } from "@/config/site";
 import { Header } from "@/components/layout/header";
 import "./globals.css";
@@ -77,19 +78,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <Header />
         {children}
-      </body>
-    </html>
-  );
-}
-
-import { Analytics } from '@vercel/analytics/react'; // 1. Importe le composant
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="fr">
-      <body>
-        {children}
-        <Analytics /> {/* 2. Ajoute le composant ici */}
+        <Analytics />
       </body>
     </html>
   );
