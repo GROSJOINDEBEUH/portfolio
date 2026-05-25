@@ -23,7 +23,7 @@ export const siteConfig = {
     phone: "06 83 03 94 51",
   },
   locale: "fr_FR",
-  ogImage: "/og-image.png",
+  ogImage: "/miniature.png",
 };
 
 export type SiteConfig = typeof siteConfig;
