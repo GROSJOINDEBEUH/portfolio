@@ -54,7 +54,7 @@ export function Hero() {
         </div>
 
         {/* H1 */}
-        <h1 className="mb-8 text-6xl font-extrabold leading-[1.05] tracking-tight sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="mb-8 break-words text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl lg:text-[5.5rem]">
           <span className="block text-foreground drop-shadow-sm">
             Mosiah.
           </span>
@@ -66,7 +66,7 @@ export function Hero() {
                   'linear-gradient(135deg, #22d3ee 0%, #818cf8 55%, #c084fc 100%)',
               }}
             >
-              Développeur&nbsp;Web
+              Développeur Web
             </span>
             <span className="text-foreground"> Freelance.</span>
           </span>
