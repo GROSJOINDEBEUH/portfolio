@@ -7,7 +7,7 @@ const SKILLS = [
   {
     id: 'frontend',
     icon: Server,
-    label: 'Stack Full-Stack',
+    label: 'Compétences Full-Stack',
     items: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase / PostgreSQL', 'Framer Motion', 'shadcn/ui', 'Resend'],
   },
   {
