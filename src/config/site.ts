@@ -18,7 +18,7 @@ export const siteConfig = {
   ],
   socials: {
     github: "https://github.com/GROSJOINDEBEUH",
-    linkedin: "https://linkedin.com/in/mosiah-grandol-tamba",
+    linkedin: "https://www.linkedin.com/in/mosiah-grandol",
     email: "grandol.mosiah@gmail.com",
     phone: "06 83 03 94 51",
   },
