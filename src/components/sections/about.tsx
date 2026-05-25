@@ -20,7 +20,7 @@ const SKILLS = [
     id: 'systeme',
     icon: Cpu,
     label: 'Outils de Développement',
-    items: ['Git / GitHub', 'Vercel', 'Windsurf', 'Terminal / Bash', 'Figma'],
+    items: ['Git / GitHub', 'Vercel', 'Railway', 'Windsurf', 'Terminal / Bash', 'Figma'],
   },
 ] as const;
 
