@@ -138,7 +138,7 @@ function PageFooter() {
           alt="Logo Mosiah Dev — Développeur Web Freelance Perpignan"
           height={32}
           width={128}
-          style={{ height: '32px', width: 'auto', opacity: 0.5 }}
+          className="h-8 w-auto opacity-50"
         />
       </div>
 

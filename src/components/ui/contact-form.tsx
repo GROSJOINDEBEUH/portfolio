@@ -60,6 +60,7 @@ export function ContactForm() {
           </p>
         </div>
         <button
+          type="button"
           onClick={() => setStatus('idle')}
           className="mt-2 text-sm text-primary underline-offset-4 hover:underline"
         >

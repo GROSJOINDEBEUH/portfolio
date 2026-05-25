@@ -1,6 +1,15 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
@@ -24,16 +33,16 @@ export async function POST(request: Request) {
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: 'grandol.mosiah@gmail.com',
       replyTo: email,
-      subject: `Nouveau message de ${name}`,
+      subject: `Nouveau message de ${escapeHtml(name)}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
           <h2 style="color:#22d3ee;">Nouveau message via portfolio</h2>
           <table style="width:100%;border-collapse:collapse;">
-            <tr><td style="padding:8px 0;color:#71717a;font-size:13px;">Nom</td><td style="padding:8px 0;font-weight:600;">${name}</td></tr>
-            <tr><td style="padding:8px 0;color:#71717a;font-size:13px;">Email</td><td style="padding:8px 0;"><a href="mailto:${email}" style="color:#22d3ee;">${email}</a></td></tr>
+            <tr><td style="padding:8px 0;color:#71717a;font-size:13px;">Nom</td><td style="padding:8px 0;font-weight:600;">${escapeHtml(name)}</td></tr>
+            <tr><td style="padding:8px 0;color:#71717a;font-size:13px;">Email</td><td style="padding:8px 0;"><a href="mailto:${escapeHtml(email)}" style="color:#22d3ee;">${escapeHtml(email)}</a></td></tr>
           </table>
           <hr style="border:1px solid #27272a;margin:16px 0;" />
-          <p style="white-space:pre-wrap;line-height:1.6;">${message}</p>
+          <p style="white-space:pre-wrap;line-height:1.6;">${escapeHtml(message)}</p>
         </div>
       `,
     });
