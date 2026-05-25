@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
+  verification: {
+    google: 'google29fcfb0c2590438e',
+  },
   robots: {
     index: true,
     follow: true,
