@@ -25,16 +25,16 @@ export function Header() {
         <Link
           href="/"
           aria-label="Retour à l'accueil"
-          className="flex h-10 shrink-0 items-center hover:opacity-75"
+          className="flex h-10 w-auto shrink-0 items-center justify-center hover:opacity-75"
           onClick={() => setOpen(false)}
         >
           <Image
             src="/logo.png"
             alt="Mosiah"
             height={40}
-            width={160}
+            width={40}
             priority
-            className="h-10 w-auto"
+            className="h-10 w-auto object-contain"
           />
         </Link>
 
