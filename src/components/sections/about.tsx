@@ -8,7 +8,7 @@ const SKILLS = [
     id: 'frontend',
     icon: Code2,
     label: 'Stack Full-Stack',
-    items: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase / PostgreSQL', 'Framer Motion', 'shadcn/ui'],
+    items: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase / PostgreSQL', 'Framer Motion', 'shadcn/ui', 'Resend'],
   },
   {
     id: 'perf',
