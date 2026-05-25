@@ -142,14 +142,16 @@ function PageFooter() {
         />
       </div>
 
-      <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
-        <p className="text-sm text-muted-foreground">
+      <div className="flex flex-col items-center gap-4 text-center md:grid md:grid-cols-3 md:items-center md:text-left">
+        {/* Col 1 — copyright */}
+        <p className="text-sm text-muted-foreground md:text-left">
           &copy;&nbsp;2026&nbsp;
           <span className="font-medium text-foreground">Mosiah</span>. Tous
           droits r&eacute;serv&eacute;s.
         </p>
 
-        <div className="flex items-center gap-1">
+        {/* Col 2 — social icons */}
+        <div className="flex justify-center gap-4">
           <Link
             href={siteConfig.socials.linkedin}
             target="_blank"
@@ -170,7 +172,8 @@ function PageFooter() {
           </Link>
         </div>
 
-        <p className="text-xs text-muted-foreground/50">
+        {/* Col 3 — stack */}
+        <p className="text-xs text-muted-foreground/50 md:text-right">
           Propuls&eacute; par Next.js&nbsp;16 &amp; Tailwind&nbsp;v4
         </p>
       </div>
