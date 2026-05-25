@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, MessageCircle } from 'lucide-react';
 import { LinkedInIcon, GitHubIcon } from '@/components/ui/social-icons';
@@ -130,6 +131,17 @@ function ContactInfoColumn() {
 function PageFooter() {
   return (
     <footer className="mt-20 border-t border-border pt-8 pb-4">
+      {/* Logo discret */}
+      <div className="mb-6 flex justify-center">
+        <Image
+          src="/logo.png"
+          alt="Mosiah"
+          height={32}
+          width={128}
+          style={{ height: '32px', width: 'auto', opacity: 0.5 }}
+        />
+      </div>
+
       <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
         <p className="text-sm text-muted-foreground">
           &copy;&nbsp;2026&nbsp;

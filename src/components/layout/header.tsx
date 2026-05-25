@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { buttonVariants } from '@/lib/utils';
@@ -17,9 +18,17 @@ export function Header() {
         {/* ── Logo ── */}
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight transition-opacity hover:opacity-80"
+          aria-label="Retour à l'accueil"
+          className="transition-opacity hover:opacity-75"
         >
-          Mosiah<span className="text-primary">.</span>
+          <Image
+            src="/logo.png"
+            alt="Mosiah"
+            height={40}
+            width={160}
+            priority
+            style={{ height: '40px', width: 'auto' }}
+          />
         </Link>
 
         {/* ── Nav links ── */}
