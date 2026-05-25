@@ -1,4 +1,4 @@
-import { Code2, Zap, Cpu, Network, Headphones, Globe, User, Briefcase, GraduationCap } from 'lucide-react';
+import { Server, Zap, Wrench, Network, Headphones, Globe, User, Briefcase, GraduationCap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 const SKILLS = [
   {
     id: 'frontend',
-    icon: Code2,
+    icon: Server,
     label: 'Stack Full-Stack',
     items: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase / PostgreSQL', 'Framer Motion', 'shadcn/ui', 'Resend'],
   },
@@ -18,7 +18,7 @@ const SKILLS = [
   },
   {
     id: 'systeme',
-    icon: Cpu,
+    icon: Wrench,
     label: 'Outils de Développement',
     items: ['Git / GitHub', 'Vercel', 'Railway', 'Windsurf', 'Terminal / Bash', 'Figma'],
   },

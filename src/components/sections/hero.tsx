@@ -56,7 +56,7 @@ export function Hero() {
         {/* H1 */}
         <h1 className="mb-8 break-words text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl lg:text-[5.5rem]">
           <span className="block text-foreground drop-shadow-sm">
-            Mosiah.
+            Mosiah<span className="animate-pulse text-primary">_</span>
           </span>
           <span className="mt-1 block">
             <span

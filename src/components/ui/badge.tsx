@@ -23,8 +23,9 @@ export function Badge({
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-medium',
+        'inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-medium transition-all duration-200 hover:scale-105 hover:shadow-md',
         variantMap[variant],
+        'hover:bg-primary/20 hover:text-primary hover:border-primary/40',
         className
       )}
       {...props}
