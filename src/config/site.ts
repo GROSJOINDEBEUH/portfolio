@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Mosiah GRANDOL TAMBA",
   description:
     "Développeur web freelance spécialisé Next.js, TypeScript et performance. Je conçois des applications web ultra-rapides, accessibles et optimisées pour le SEO — des Core Web Vitals irréprochables à chaque livraison.",
-  url: "https://mosiah.dev",
+  url: "https://mosiah-dev.vercel.app",
   author: "Mosiah GRANDOL TAMBA",
   keywords: [
     "développeur web freelance",

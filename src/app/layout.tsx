@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.author }],
   creator: siteConfig.author,
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
@@ -31,7 +39,14 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.shortName,
-    images: [{ url: siteConfig.ogImage }],
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.shortName} — Développeur Web Freelance`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
