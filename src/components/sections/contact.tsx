@@ -135,7 +135,7 @@ function PageFooter() {
       <div className="mb-6 flex justify-center">
         <Image
           src="/logo.png"
-          alt="Mosiah"
+          alt="Logo Mosiah Dev — Développeur Web Freelance Perpignan"
           height={32}
           width={128}
           style={{ height: '32px', width: 'auto', opacity: 0.5 }}

@@ -30,7 +30,7 @@ export function Header() {
         >
           <Image
             src="/logo.png"
-            alt="Mosiah"
+            alt="Mosiah Dev — Développeur Web Freelance Perpignan"
             height={40}
             width={40}
             priority
