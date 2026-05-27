@@ -132,13 +132,13 @@ function PageFooter() {
   return (
     <footer className="mt-20 border-t border-border pt-8 pb-4">
       {/* Logo discret */}
-      <div className="mb-6 flex h-8 w-32 shrink-0 items-center justify-center">
+      <div className="mb-6 flex w-full justify-center">
         <Image
           src="/logo.png"
           alt="Logo Mosiah Dev — Développeur Web Freelance Perpignan"
-          height={32}
-          width={128}
-          className="h-8 w-32 object-contain opacity-50"
+          width={40}
+          height={40}
+          className="h-10 w-10 object-contain opacity-50"
         />
       </div>
 
