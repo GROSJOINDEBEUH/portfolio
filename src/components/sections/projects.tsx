@@ -16,27 +16,31 @@ const FEATURED = {
   title: 'Tropical Atlantic Food',
   url: 'https://www.tropical-atlantic-food.fr',
   urlShort: 'tropical-atlantic-food.fr',
-  description:
-    "Site web vitrine premium pour un restaurant. Focus absolu sur la performance vitale (Core Web Vitals) et l'optimisation SEO technique.",
-  tags: ['Next.js', 'Tailwind CSS', 'AVIF', 'RUM 100/100', 'SEO JSON-LD', 'Middleware 301'],
+  problem:
+    'Un restaurant avait besoin d\'une présence web claire, rapide et professionnelle pour présenter son menu et améliorer sa visibilité locale.',
+  solution:
+    'Création d\'un site vitrine moderne avec Next.js, responsive, optimisé SEO local, menu en ligne, images optimisées et données structurées.',
+  result:
+    'Site en production, navigation mobile fluide, chargement rapide, meilleure crédibilité en ligne et base solide pour le référencement local.',
+  tags: ['Projet réel', 'En production', 'SEO local', 'Performance mobile', 'Responsive', 'Next.js'],
   metrics: [
-    'Score de performance de 100/100 sur Vercel Mobile',
-    'Direction artistique responsive dynamique (Tailwind)',
-    'Redirections natives pour éviter la cannibalisation SEO',
+    'Score de performance 100/100 sur mobile',
+    'Images AVIF optimisées — chargement instantané',
+    'Données structurées JSON-LD pour le référencement local',
   ],
 };
 
 const SECONDARY = [
   {
     id: 'fc-tartanerie',
-    title: 'Dashboard FC Tartanerie',
+    title: 'Dashboard Statistiques Sportives',
     description:
-      'Dashboard dynamique de gestion et de suivi de statistiques pour une équipe FC Pro Clubs. Données en temps réel, interface data-driven déployée en production sur Railway.',
+      'Application dashboard full-stack avec synchronisation de données et interface d\'analyse. Version démonstration — pensée pour montrer la création d\'interfaces complexes et de dashboards dynamiques.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Railway'],
     icon: BarChart2,
     accentColor: 'from-violet-600/20 to-indigo-600/10',
     accentBorder: 'border-violet-500/20',
-    status: 'En production',
+    status: 'Démo / Projet perso',
     liveUrl: 'https://fc-tartanerie-dashboard-production.up.railway.app/',
   },
 ];
@@ -143,15 +147,26 @@ function FeaturedProject() {
             </Link>
           </div>
 
-          {/* Description */}
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {FEATURED.description}
-          </p>
+          {/* Case study — Problème / Solution / Résultat */}
+          <div className="flex flex-col gap-3 text-sm">
+            <div>
+              <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground/50">Problème</p>
+              <p className="leading-relaxed text-muted-foreground">{FEATURED.problem}</p>
+            </div>
+            <div>
+              <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground/50">Solution</p>
+              <p className="leading-relaxed text-muted-foreground">{FEATURED.solution}</p>
+            </div>
+            <div>
+              <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-primary/70">Résultat</p>
+              <p className="leading-relaxed text-foreground/80">{FEATURED.result}</p>
+            </div>
+          </div>
 
-          {/* Tech tags */}
+          {/* Social proof badges */}
           <div className="flex flex-wrap gap-2">
             {FEATURED.tags.map((tag) => (
-              <Badge key={tag} variant="mono">
+              <Badge key={tag} variant="primary">
                 {tag}
               </Badge>
             ))}

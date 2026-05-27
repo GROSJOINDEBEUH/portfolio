@@ -24,6 +24,7 @@ export function ContactForm() {
     const data = {
       name: (form.elements.namedItem('name') as HTMLInputElement).value,
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      projectType: (form.elements.namedItem('projectType') as HTMLSelectElement).value,
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
     };
 
@@ -104,17 +105,37 @@ export function ContactForm() {
         />
       </div>
 
+      {/* Type de projet */}
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="projectType" className="text-sm font-medium text-foreground/80">
+          Type de projet
+        </label>
+        <select
+          id="projectType"
+          name="projectType"
+          className={`${INPUT_BASE} cursor-pointer`}
+          defaultValue=""
+        >
+          <option value="" disabled>S&eacute;lectionnez un type&hellip;</option>
+          <option value="site-vitrine">Site vitrine</option>
+          <option value="dashboard">Dashboard / outil m&eacute;tier</option>
+          <option value="seo-perf">SEO &amp; performance</option>
+          <option value="application">Application web sur-mesure</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+
       {/* Message */}
       <div className="flex flex-col gap-1.5">
         <label htmlFor="message" className="text-sm font-medium text-foreground/80">
-          Message
+          Votre projet
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows={8}
-          placeholder="D&eacute;crivez votre projet, vos objectifs, votre timeline&hellip;"
+          placeholder="D&eacute;crivez votre projet&hellip;&#10;&#10;Budget approximatif : ex. 500€ — 1500€&#10;D&eacute;lai souhait&eacute; : ex. livraison dans 4 semaines"
           className={`${INPUT_BASE} resize-none`}
         />
       </div>

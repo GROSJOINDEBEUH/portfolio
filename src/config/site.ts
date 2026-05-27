@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Mosiah Dev | Développeur Web Full-Stack Freelance Perpignan",
+  name: "Mosiah Grandol — Développeur Web Freelance Next.js | Sites rapides & SEO",
   shortName: "Mosiah Dev",
   description:
-    "Développeur web freelance à Perpignan spécialisé Next.js, React et TypeScript. Création de sites vitrines, SaaS et applications sur-mesure ultra-performantes.",
+    "Développeur web freelance spécialisé en sites modernes, rapides et optimisés SEO pour restaurants, commerces, indépendants et applications sur-mesure.",
   url: "https://mosiah-dev.vercel.app",
   author: "Mosiah GRANDOL TAMBA",
   keywords: [

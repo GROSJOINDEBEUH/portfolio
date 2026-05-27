@@ -9,6 +9,7 @@ import { buttonVariants } from '@/lib/utils';
 import { LinkedInIcon } from '@/components/ui/social-icons';
 
 const NAV_LINKS = [
+  { href: '#services', label: 'Services' },
   { href: '#projets', label: 'Projets' },
   { href: '#apropos', label: 'À propos' },
   { href: '#contact', label: 'Contact' },

@@ -44,11 +44,11 @@ function SectionHeader() {
         Contact
       </div>
       <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-        Discutons de votre projet
+        Vous avez un projet&nbsp;?
       </h2>
       <p className="mt-4 max-w-xl text-center text-lg text-muted-foreground">
-        Une id&eacute;e, un projet, une question&nbsp;? Je suis disponible
-        imm&eacute;diatement &mdash; parlons-en.
+        Envoyez-moi votre id&eacute;e, je vous r&eacute;ponds avec une
+        premi&egrave;re estimation gratuite sous 24&nbsp;h.
       </p>
     </div>
   );

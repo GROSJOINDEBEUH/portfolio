@@ -74,27 +74,27 @@ export function Hero() {
 
         {/* Subtitle */}
         <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-          Je conçois des applications web sur-mesure, ultra-performantes et
-          optimisées pour le&nbsp;SEO. Des architectures robustes pour des
-          expériences digitales irréprochables.
+          Je cr&eacute;e des sites web rapides, modernes et optimis&eacute;s
+          Google pour aider les restaurants, commerces et ind&eacute;pendants
+          &agrave; attirer plus de clients et recevoir plus de demandes.
         </p>
 
         {/* CTA buttons */}
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
-            href="#projets"
+            href="#contact"
             className={buttonVariants({ size: 'lg' })}
           >
-            Découvrir mes projets
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Mail className="h-4 w-4" />
+            Discuter de mon projet
           </Link>
 
           <Link
-            href="#contact"
+            href="#projets"
             className={buttonVariants({ variant: 'outline', size: 'lg' })}
           >
-            <Mail className="h-4 w-4" />
-            Discuter d&apos;un projet
+            Voir mes r&eacute;alisations
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 

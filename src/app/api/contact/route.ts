@@ -10,17 +10,17 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;');
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body = await request.json() as {
       name?: string;
       email?: string;
+      projectType?: string;
       message?: string;
     };
 
-    const { name, email, message } = body;
+    const { name, email, projectType, message } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -40,6 +40,7 @@ export async function POST(request: Request) {
           <table style="width:100%;border-collapse:collapse;">
             <tr><td style="padding:8px 0;color:#71717a;font-size:13px;">Nom</td><td style="padding:8px 0;font-weight:600;">${escapeHtml(name)}</td></tr>
             <tr><td style="padding:8px 0;color:#71717a;font-size:13px;">Email</td><td style="padding:8px 0;"><a href="mailto:${escapeHtml(email)}" style="color:#22d3ee;">${escapeHtml(email)}</a></td></tr>
+            ${projectType ? `<tr><td style="padding:8px 0;color:#71717a;font-size:13px;">Type de projet</td><td style="padding:8px 0;font-weight:600;">${escapeHtml(projectType)}</td></tr>` : ''}
           </table>
           <hr style="border:1px solid #27272a;margin:16px 0;" />
           <p style="white-space:pre-wrap;line-height:1.6;">${escapeHtml(message)}</p>
