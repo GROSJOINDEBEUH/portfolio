@@ -19,6 +19,7 @@ function SliderContent({
   onSliderChange,
   showMaximizeButton = false,
   onMaximize,
+  isModal = false,
 }: {
   beforeImage: string;
   afterImage: string;
@@ -27,10 +28,14 @@ function SliderContent({
   onSliderChange: (value: number) => void;
   showMaximizeButton?: boolean;
   onMaximize?: () => void;
+  isModal?: boolean;
 }) {
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onSliderChange(Number(e.target.value));
   };
+
+  const imageSizes = isModal ? "100vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw";
+  const imageQuality = isModal ? 100 : undefined;
 
   return (
     <div className="relative w-full overflow-hidden rounded-lg border border-border bg-card">
@@ -44,7 +49,8 @@ function SliderContent({
             alt={`${alt} - After`}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes={imageSizes}
+            quality={imageQuality}
             priority
           />
         </div>
@@ -59,7 +65,8 @@ function SliderContent({
             alt={`${alt} - Before`}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes={imageSizes}
+            quality={imageQuality}
             priority
             style={{ width: '100%', height: '100%' }}
           />
@@ -141,18 +148,24 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After
 
       {/* Fullscreen modal */}
       {isExpanded && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm"
+          onClick={handleClose}
+        >
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:right-10 md:top-10"
+            className="fixed top-4 right-4 z-[70] p-2 bg-black/60 hover:bg-black text-white rounded-full transition-colors md:right-10 md:top-10"
             aria-label="Fermer"
           >
-            <X className="h-5 w-5" strokeWidth={2} />
+            <X size={24} strokeWidth={2} />
           </button>
 
           {/* Large slider in modal */}
-          <div className="w-full max-w-6xl">
+          <div 
+            className="w-full max-w-6xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <SliderContent
               beforeImage={beforeImage}
               afterImage={afterImage}
@@ -160,6 +173,7 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After
               sliderPosition={sliderPosition}
               onSliderChange={handleSliderChange}
               showMaximizeButton={false}
+              isModal={true}
             />
           </div>
         </div>
