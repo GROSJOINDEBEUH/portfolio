@@ -88,7 +88,7 @@ function SliderContent({
         {showMaximizeButton && onMaximize && (
           <button
             onClick={onMaximize}
-            className="absolute right-3 bottom-3 flex h-8 w-8 items-center justify-center rounded-lg bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
+            className="absolute right-3 bottom-3 z-50 flex h-8 w-8 items-center justify-center rounded-lg bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
             aria-label="Agrandir"
           >
             <Maximize className="h-4 w-4" strokeWidth={2} />
