@@ -32,6 +32,18 @@ const FEATURED = {
 
 const SECONDARY = [
   {
+    id: 'wildopening-tcg',
+    title: 'WildOpeningTCG',
+    description:
+      'Refonte UX/UI et optimisation Shopify. Refonte complète d\'une boutique Shopify spécialisée dans les produits scellés TCG (One Piece, imports japonais). Création d\'une identité visuelle premium, développement de sections Liquid sur mesure, animations JavaScript (ticker dynamique) et optimisation des parcours utilisateurs.',
+    tags: ['Shopify', 'Liquid', 'JavaScript', 'CSS3', 'UX/UI Design', 'E-commerce'],
+    icon: Globe,
+    accentColor: 'from-emerald-600/20 to-teal-600/10',
+    accentBorder: 'border-emerald-500/20',
+    status: 'En production',
+    liveUrl: 'https://wildopeningproject.netlify.app/',
+  },
+  {
     id: 'fc-tartanerie',
     title: 'Dashboard Statistiques Sportives',
     description:
