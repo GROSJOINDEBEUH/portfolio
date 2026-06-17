@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { ChevronsLeftRight, Maximize, X } from 'lucide-react';
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -9,11 +10,26 @@ interface BeforeAfterSliderProps {
   alt?: string;
 }
 
-export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After comparison' }: BeforeAfterSliderProps) {
-  const [sliderPosition, setSliderPosition] = useState(50);
-
+// Internal slider component to avoid state conflicts when rendered in both card and modal
+function SliderContent({
+  beforeImage,
+  afterImage,
+  alt,
+  sliderPosition,
+  onSliderChange,
+  showMaximizeButton = false,
+  onMaximize,
+}: {
+  beforeImage: string;
+  afterImage: string;
+  alt: string;
+  sliderPosition: number;
+  onSliderChange: (value: number) => void;
+  showMaximizeButton?: boolean;
+  onMaximize?: () => void;
+}) {
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSliderPosition(Number(e.target.value));
+    onSliderChange(Number(e.target.value));
   };
 
   return (
@@ -54,21 +70,9 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After
           className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg"
           style={{ left: `${sliderPosition}%` }}
         >
-          {/* Handle */}
+          {/* Handle with horizontal arrows */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg">
-            <svg
-              className="h-5 w-5 text-gray-800"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-              />
-            </svg>
+            <ChevronsLeftRight className="h-5 w-5 text-gray-800" strokeWidth={2} />
           </div>
         </div>
 
@@ -79,6 +83,17 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After
         <div className="absolute right-3 top-3 rounded bg-black/50 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm">
           Après
         </div>
+
+        {/* Maximize button */}
+        {showMaximizeButton && onMaximize && (
+          <button
+            onClick={onMaximize}
+            className="absolute right-3 bottom-3 flex h-8 w-8 items-center justify-center rounded-lg bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
+            aria-label="Agrandir"
+          >
+            <Maximize className="h-4 w-4" strokeWidth={2} />
+          </button>
+        )}
 
         {/* Invisible range input for interaction */}
         <input
@@ -92,5 +107,63 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After
         />
       </div>
     </div>
+  );
+}
+
+export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After comparison' }: BeforeAfterSliderProps) {
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleSliderChange = (value: number) => {
+    setSliderPosition(value);
+  };
+
+  const handleMaximize = () => {
+    setIsExpanded(true);
+  };
+
+  const handleClose = () => {
+    setIsExpanded(false);
+  };
+
+  return (
+    <>
+      {/* Regular slider in card */}
+      <SliderContent
+        beforeImage={beforeImage}
+        afterImage={afterImage}
+        alt={alt}
+        sliderPosition={sliderPosition}
+        onSliderChange={handleSliderChange}
+        showMaximizeButton={true}
+        onMaximize={handleMaximize}
+      />
+
+      {/* Fullscreen modal */}
+      {isExpanded && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm">
+          {/* Close button */}
+          <button
+            onClick={handleClose}
+            className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:right-10 md:top-10"
+            aria-label="Fermer"
+          >
+            <X className="h-5 w-5" strokeWidth={2} />
+          </button>
+
+          {/* Large slider in modal */}
+          <div className="w-full max-w-6xl">
+            <SliderContent
+              beforeImage={beforeImage}
+              afterImage={afterImage}
+              alt={alt}
+              sliderPosition={sliderPosition}
+              onSliderChange={handleSliderChange}
+              showMaximizeButton={false}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
