@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
 
@@ -42,6 +43,8 @@ const SECONDARY = [
     accentBorder: 'border-emerald-500/20',
     status: 'En production',
     liveUrl: 'https://wildopeningproject.netlify.app/',
+    beforeImage: '/capture boutique wild opening/old.png',
+    afterImage: '/capture boutique wild opening/new.png',
   },
   {
     id: 'fc-tartanerie',
@@ -208,8 +211,11 @@ function SecondaryProjectCard({
   accentBorder,
   status,
   liveUrl,
+  beforeImage,
+  afterImage,
 }: (typeof SECONDARY)[number]) {
   const isLive = status === 'En production';
+  const hasBeforeAfter = beforeImage && afterImage;
 
   return (
     <article
@@ -222,6 +228,15 @@ function SecondaryProjectCard({
       />
 
       <div className="relative z-10 flex h-full flex-col gap-5">
+        {/* Before/After slider if images are provided */}
+        {hasBeforeAfter && (
+          <BeforeAfterSlider
+            beforeImage={beforeImage}
+            afterImage={afterImage}
+            alt={`${title} - Avant/Après`}
+          />
+        )}
+
         {/* Icon + status */}
         <div className="flex items-start justify-between">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5">

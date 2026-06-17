@@ -1,4 +1,4 @@
-import { Server, Zap, Wrench, Network, Headphones, Globe, User, Briefcase, GraduationCap } from 'lucide-react';
+import { Server, Zap, Wrench, Network, Headphones, Globe, User, Briefcase, GraduationCap, ShoppingCart } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
@@ -17,10 +17,16 @@ const SKILLS = [
     items: ['Core Web Vitals (100/100)', 'AVIF', 'JSON-LD', 'Middleware/Proxy 301'],
   },
   {
+    id: 'ecommerce',
+    icon: ShoppingCart,
+    label: 'E-commerce & Design',
+    items: ['Shopify', 'Liquid', 'UX/UI Design', 'Animation JS'],
+  },
+  {
     id: 'systeme',
     icon: Wrench,
     label: 'Outils de Développement',
-    items: ['Git / GitHub', 'Vercel', 'Railway', 'Windsurf', 'Terminal / Bash', 'Figma'],
+    items: ['Git / GitHub', 'Vercel', 'Railway', 'Windsurf', 'Cascade', 'Cline', 'Terminal / Bash', 'Figma'],
   },
 ] as const;
 
@@ -182,9 +188,9 @@ function NarrativeColumn() {
           En parall&egrave;le, ma passion pour l&apos;assemblage de hardware et
           le d&eacute;veloppement m&apos;a pouss&eacute; &agrave;
           ma&icirc;triser la cr&eacute;ation d&apos;applications web modernes.
-          R&eacute;sultat&nbsp;: je con&ccedil;ois des sites vitrines et des
-          dashboards avec la m&ecirc;me exigence technique que pour le
-          d&eacute;ploiement d&apos;une{' '}
+          R&eacute;sultat&nbsp;: je con&ccedil;ois des sites vitrines, des
+          dashboards complexes et des plateformes e-commerce sur mesure avec la
+          m&ecirc;me exigence technique que pour le d&eacute;ploiement d&apos;une{' '}
           <strong className="font-semibold" style={{ color: '#22d3ee' }}>
             fibre optique.
           </strong>
