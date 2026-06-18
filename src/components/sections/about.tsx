@@ -1,34 +1,9 @@
-import { Server, Zap, Wrench, Network, Headphones, Globe, User, Briefcase, GraduationCap, Palette } from 'lucide-react';
+import { Network, Headphones, Globe, User, Briefcase, GraduationCap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { ExpertiseCard } from '@/components/ui/ExpertiseCard';
+import { expertiseData } from '@/data/expertise';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
-
-const SKILLS = [
-  {
-    id: 'frontend',
-    icon: Server,
-    label: 'Compétences Full-Stack',
-    items: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase / PostgreSQL', 'Framer Motion', 'shadcn/ui', 'Resend', 'Shopify', 'Liquid'],
-  },
-  {
-    id: 'perf',
-    icon: Zap,
-    label: 'Performance & SEO',
-    items: ['Core Web Vitals (100/100)', 'AVIF', 'JSON-LD', 'Middleware/Proxy 301'],
-  },
-  {
-    id: 'design',
-    icon: Palette,
-    label: 'Design & UX',
-    items: ['UX/UI Design', 'Animation JS'],
-  },
-  {
-    id: 'systeme',
-    icon: Wrench,
-    label: 'Outils de Développement',
-    items: ['Git / GitHub', 'Vercel', 'Railway', 'Windsurf', 'Cascade', 'Cline', 'Terminal / Bash', 'Figma'],
-  },
-] as const;
 
 const TIMELINE = [
   {
@@ -202,39 +177,11 @@ function NarrativeColumn() {
   );
 }
 
-function SkillBox({
-  icon: Icon,
-  label,
-  items,
-}: {
-  icon: (typeof SKILLS)[number]['icon'];
-  label: string;
-  items: readonly string[];
-}) {
+function ExpertiseColumn() {
   return (
-    <div className="group rounded-xl border border-border bg-zinc-900/30 p-5 transition-[border-color,background-color,box-shadow] duration-300 hover:border-primary/25 hover:bg-zinc-900/60 hover:shadow-lg hover:shadow-black/20">
-      <div className="mb-4 flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary/50 text-primary transition-colors group-hover:border-primary/30 group-hover:bg-primary/10">
-          <Icon className="h-4 w-4" strokeWidth={1.5} />
-        </div>
-        <h3 className="text-sm font-semibold text-foreground">{label}</h3>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {items.map((item) => (
-          <Badge key={item} variant="mono">
-            {item}
-          </Badge>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function SkillsColumn() {
-  return (
-    <div className="flex flex-col gap-4">
-      {SKILLS.map((skill) => (
-        <SkillBox key={skill.id} {...skill} />
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      {expertiseData.map((expertise) => (
+        <ExpertiseCard key={expertise.title} expertise={expertise} />
       ))}
     </div>
   );
@@ -255,7 +202,7 @@ export function About() {
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <NarrativeColumn />
-          <SkillsColumn />
+          <ExpertiseColumn />
         </div>
       </div>
     </section>
