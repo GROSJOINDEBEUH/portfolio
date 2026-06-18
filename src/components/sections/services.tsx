@@ -1,4 +1,4 @@
-import { Monitor, LayoutDashboard, Gauge, Wrench } from 'lucide-react';
+import { Monitor, LayoutDashboard, Gauge, Wrench, ShoppingCart } from 'lucide-react';
 
 const SERVICES = [
   {
@@ -24,6 +24,14 @@ const SERVICES = [
     description:
       'Optimisation du temps de chargement, structure SEO, Core Web Vitals, métadonnées, images et accessibilité. Votre site visible sur Google, rapide sur tous les appareils.',
     highlights: ['Core Web Vitals 100/100', 'Audit complet', 'Données structurées', 'Images optimisées'],
+  },
+  {
+    id: 'shopify',
+    icon: ShoppingCart,
+    title: 'Refonte E-commerce Shopify',
+    description:
+      'Modernisation de boutiques Shopify. Développement de sections sur-mesure (Liquid), optimisation de l\'expérience utilisateur (UX/UI) et des performances pour maximiser les conversions.',
+    highlights: ['Shopify', 'Liquid', 'UX/UI', 'Conversion'],
   },
 ] as const;
 
@@ -79,7 +87,7 @@ export function Services() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {SERVICES.map((service) => (
             <ServiceCard key={service.id} {...service} />
           ))}
