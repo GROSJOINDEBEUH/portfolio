@@ -179,7 +179,7 @@ function NarrativeColumn() {
 
 function ExpertiseColumn() {
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
       {expertiseData.map((expertise) => (
         <ExpertiseCard key={expertise.title} expertise={expertise} />
       ))}
@@ -200,9 +200,13 @@ export function About() {
       <div className="mx-auto max-w-5xl">
         <SectionHeader />
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-          <NarrativeColumn />
-          <ExpertiseColumn />
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          <div className="w-full lg:w-1/3">
+            <NarrativeColumn />
+          </div>
+          <div className="w-full lg:w-2/3">
+            <ExpertiseColumn />
+          </div>
         </div>
       </div>
     </section>

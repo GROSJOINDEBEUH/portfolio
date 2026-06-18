@@ -22,18 +22,18 @@ export function ExpertiseCard({ expertise }: ExpertiseCardProps) {
 
   return (
     <motion.div
-      className="group relative overflow-hidden rounded-2xl bg-neutral-900/30 backdrop-blur-sm border border-white/[0.05] p-8 transition-all duration-300 hover:shadow-lg hover:shadow-black/20"
+      className="group relative overflow-hidden rounded-2xl bg-neutral-900/30 backdrop-blur-sm border border-white/[0.05] p-6 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 min-w-0"
       whileHover={{ scale: 1.02 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
       {/* Icon + Title */}
-      <div className="mb-6 flex items-start gap-4">
+      <div className="mb-6 flex items-start gap-4 min-w-0">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] transition-colors group-hover:border-primary/15 group-hover:bg-primary/[0.05]">
           <Icon className="h-6 w-6 text-primary/80" />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <h3 className="text-base font-semibold tracking-tight text-foreground/90">
             {title}
           </h3>
@@ -44,7 +44,7 @@ export function ExpertiseCard({ expertise }: ExpertiseCardProps) {
       </div>
 
       {/* Skills */}
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
           <SkillBadge key={skill} skill={skill} />
         ))}
