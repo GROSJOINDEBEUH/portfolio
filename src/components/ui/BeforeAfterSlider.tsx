@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { ChevronsLeftRight, Maximize, X } from 'lucide-react';
 
@@ -120,6 +121,11 @@ function SliderContent({
 export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After comparison' }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSliderChange = (value: number) => {
     setSliderPosition(value);
@@ -132,6 +138,39 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After
   const handleClose = () => {
     setIsExpanded(false);
   };
+
+  // Modal JSX to be rendered via portal
+  const modal = (
+    <div 
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm"
+      onClick={handleClose}
+    >
+      {/* Close button */}
+      <button
+        onClick={handleClose}
+        className="fixed top-4 right-4 z-[10000] p-2 bg-black/60 hover:bg-black text-white rounded-full transition-colors md:right-10 md:top-10"
+        aria-label="Fermer"
+      >
+        <X size={24} strokeWidth={2} />
+      </button>
+
+      {/* Large slider in modal */}
+      <div 
+        className="w-full max-w-6xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <SliderContent
+          beforeImage={beforeImage}
+          afterImage={afterImage}
+          alt={alt}
+          sliderPosition={sliderPosition}
+          onSliderChange={handleSliderChange}
+          showMaximizeButton={false}
+          isModal={true}
+        />
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -146,38 +185,8 @@ export function BeforeAfterSlider({ beforeImage, afterImage, alt = 'Before/After
         onMaximize={handleMaximize}
       />
 
-      {/* Fullscreen modal */}
-      {isExpanded && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm"
-          onClick={handleClose}
-        >
-          {/* Close button */}
-          <button
-            onClick={handleClose}
-            className="fixed top-4 right-4 z-[70] p-2 bg-black/60 hover:bg-black text-white rounded-full transition-colors md:right-10 md:top-10"
-            aria-label="Fermer"
-          >
-            <X size={24} strokeWidth={2} />
-          </button>
-
-          {/* Large slider in modal */}
-          <div 
-            className="w-full max-w-6xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <SliderContent
-              beforeImage={beforeImage}
-              afterImage={afterImage}
-              alt={alt}
-              sliderPosition={sliderPosition}
-              onSliderChange={handleSliderChange}
-              showMaximizeButton={false}
-              isModal={true}
-            />
-          </div>
-        </div>
-      )}
+      {/* Fullscreen modal via portal */}
+      {isExpanded && mounted && createPortal(modal, document.body)}
     </>
   );
 }
