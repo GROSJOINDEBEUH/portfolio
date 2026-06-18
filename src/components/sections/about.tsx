@@ -1,4 +1,4 @@
-import { Server, Zap, Wrench, Network, Headphones, Globe, User, Briefcase, GraduationCap, ShoppingCart } from 'lucide-react';
+import { Server, Zap, Wrench, Network, Headphones, Globe, User, Briefcase, GraduationCap, Palette } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
@@ -8,7 +8,7 @@ const SKILLS = [
     id: 'frontend',
     icon: Server,
     label: 'Compétences Full-Stack',
-    items: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase / PostgreSQL', 'Framer Motion', 'shadcn/ui', 'Resend'],
+    items: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase / PostgreSQL', 'Framer Motion', 'shadcn/ui', 'Resend', 'Shopify', 'Liquid'],
   },
   {
     id: 'perf',
@@ -17,10 +17,10 @@ const SKILLS = [
     items: ['Core Web Vitals (100/100)', 'AVIF', 'JSON-LD', 'Middleware/Proxy 301'],
   },
   {
-    id: 'ecommerce',
-    icon: ShoppingCart,
-    label: 'E-commerce & Design',
-    items: ['Shopify', 'Liquid', 'UX/UI Design', 'Animation JS'],
+    id: 'design',
+    icon: Palette,
+    label: 'Design & UX',
+    items: ['UX/UI Design', 'Animation JS'],
   },
   {
     id: 'systeme',
