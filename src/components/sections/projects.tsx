@@ -42,7 +42,7 @@ const SECONDARY = [
     accentColor: 'from-emerald-600/20 to-teal-600/10',
     accentBorder: 'border-emerald-500/20',
     status: 'En production',
-    liveUrl: 'https://wildopeningproject.netlify.app/',
+    liveUrl: 'https://www.wildopeningtcg.com/',
     beforeImage: '/capture boutique wild opening/old.png',
     afterImage: '/capture boutique wild opening/new.png',
   },
