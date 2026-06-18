@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Code2, Layers, Zap, Wrench } from 'lucide-react';
 import { ExpertiseItem } from '@/data/expertise';
 import { SkillBadge } from './SkillBadge';
 
@@ -8,8 +9,16 @@ interface ExpertiseCardProps {
   expertise: ExpertiseItem;
 }
 
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Code2,
+  Layers,
+  Zap,
+  Wrench,
+};
+
 export function ExpertiseCard({ expertise }: ExpertiseCardProps) {
-  const { title, description, icon: Icon, skills } = expertise;
+  const { title, description, icon: iconName, skills } = expertise;
+  const Icon = iconMap[iconName] || Code2;
 
   return (
     <motion.div
