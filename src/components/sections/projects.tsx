@@ -236,7 +236,7 @@ function SecondaryProjectCard({
 
       <div className="relative z-10 flex h-full flex-col justify-between gap-5">
         {/* Top section */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-6">
           {/* Before/After slider if images are provided */}
           {hasBeforeAfter && (
             <BeforeAfterSlider
@@ -268,7 +268,7 @@ function SecondaryProjectCard({
           {/* Title + description */}
           <div>
             <h3 className="text-xl font-bold tracking-tight">{title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
               {description}
             </p>
           </div>
@@ -350,7 +350,7 @@ export function Projects() {
         <FeaturedProject />
 
         {/* Secondary projects grid */}
-        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 items-stretch">
           {SECONDARY.map((project) => (
             <SecondaryProjectCard key={project.id} {...project} />
           ))}
