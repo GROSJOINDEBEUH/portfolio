@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  ExternalLink,
   CheckCircle2,
   Globe,
   BarChart2,
   Sparkles,
   ArrowRight,
+  ExternalLink,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
+import { ProjectCard } from '@/components/ui/ProjectCard';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
 
@@ -51,6 +51,7 @@ const SECONDARY = [
     title: 'Dashboard Statistiques Sportives',
     description:
       'Application dashboard full-stack avec synchronisation de données et interface d\'analyse. Version démonstration — pensée pour montrer la création d\'interfaces complexes et de dashboards dynamiques.',
+    image: '/Dashboard/Capture.png',
     features: [
       'Synchronisation temps réel des données',
       'Visualisation de données complexes (Graphiques)',
@@ -207,118 +208,6 @@ function FeaturedProject() {
   );
 }
 
-function SecondaryProjectCard({
-  title,
-  description,
-  tags,
-  icon: Icon,
-  accentColor,
-  accentBorder,
-  status,
-  liveUrl,
-  beforeImage,
-  afterImage,
-  features,
-}: (typeof SECONDARY)[number]) {
-  const isLive = status === 'En production';
-  const hasBeforeAfter = beforeImage && afterImage;
-  const hasFeatures = features && features.length > 0;
-
-  return (
-    <article
-      className={`group relative overflow-hidden rounded-2xl border bg-card/50 p-6 transition-[border-color,box-shadow] duration-300 hover:border-border/80 hover:shadow-lg hover:shadow-black/20 ${accentBorder}`}
-    >
-      {/* Gradient accent background */}
-      <div
-        aria-hidden
-        className={`absolute inset-0 bg-gradient-to-br ${accentColor} opacity-60`}
-      />
-
-      <div className="relative z-10 flex h-full flex-col justify-between gap-5">
-        {/* Top section */}
-        <div className="flex flex-col gap-6">
-          {/* Before/After slider if images are provided */}
-          {hasBeforeAfter && (
-            <BeforeAfterSlider
-              beforeImage={beforeImage}
-              afterImage={afterImage}
-              alt={`${title} - Avant/Après`}
-            />
-          )}
-
-          {/* Icon + status */}
-          <div className="flex items-start justify-between">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5">
-              <Icon className="h-5 w-5 text-foreground/70" />
-            </div>
-            <span
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${
-                isLive
-                  ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400'
-                  : 'border-border bg-secondary text-muted-foreground'
-              }`}
-            >
-              {isLive && (
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              )}
-              {status}
-            </span>
-          </div>
-
-          {/* Title + description */}
-          <div>
-            <h3 className="text-xl font-bold tracking-tight">{title}</h3>
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              {description}
-            </p>
-          </div>
-
-          {/* Features section */}
-          {hasFeatures && (
-            <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground/70">
-                Fonctionnalités clés
-              </p>
-              <ul className="flex flex-col gap-1.5">
-                {features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-xs text-muted-foreground">
-                    <span className="mt-0.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        {/* Bottom section - always at bottom */}
-        <div className="flex flex-col gap-3">
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <Badge key={tag} variant="outline">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-
-          {/* Live link */}
-          {liveUrl && (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 self-start text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              <ExternalLink className="h-3.5 w-3.5" />
-              Voir le projet en direct
-            </a>
-          )}
-        </div>
-      </div>
-    </article>
-  );
-}
 
 function ComingSoonCard() {
   return (
@@ -352,7 +241,17 @@ export function Projects() {
         {/* Secondary projects grid */}
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 items-stretch">
           {SECONDARY.map((project) => (
-            <SecondaryProjectCard key={project.id} {...project} />
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              features={project.features}
+              tags={project.tags}
+              link={project.liveUrl}
+              beforeImage={project.beforeImage}
+              afterImage={project.afterImage}
+            />
           ))}
           <ComingSoonCard />
         </div>
