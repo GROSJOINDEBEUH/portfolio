@@ -10,13 +10,13 @@ export const expertiseData: readonly ExpertiseItem[] = [
     title: 'Stack Principale',
     description: 'Outils quotidiens pour concevoir des applications scalables.',
     icon: 'Code2',
-    skills: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
+    skills: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Shopify', 'APIs'],
   },
   {
     title: 'Domaines d\'Expertise',
     description: 'Solutions complètes pour des besoins métiers spécifiques.',
     icon: 'Layers',
-    skills: ['Full-Stack App', 'Performance Web', 'SEO Technique', 'Accessibilité', 'UX/UI Moderne', 'Animations', 'Shopify', 'APIs'],
+    skills: ['Full-Stack App', 'Performance Web', 'Accessibilité', 'UX/UI Moderne', 'Animations'],
   },
   {
     title: 'Performance & Qualité',
