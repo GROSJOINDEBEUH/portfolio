@@ -10,7 +10,7 @@ export const expertiseData: readonly ExpertiseItem[] = [
     title: 'Stack Principale',
     description: 'Outils quotidiens pour concevoir des applications scalables.',
     icon: 'Code2',
-    skills: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Shopify', 'APIs'],
+    skills: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'APIs'],
   },
   {
     title: 'Domaines d\'Expertise',
@@ -28,6 +28,6 @@ export const expertiseData: readonly ExpertiseItem[] = [
     title: 'Outils & Workflow',
     description: 'Un environnement de travail optimisé pour la productivité.',
     icon: 'Wrench',
-    skills: ['Git/GitHub', 'Vercel', 'Railway', 'Figma', 'Windsurf', 'Cascade', 'Terminal', 'Bash'],
+    skills: ['Git/GitHub', 'Vercel', 'Railway', 'Figma', 'Windsurf', 'Cascade', 'Terminal', 'Bash', 'Shopify'],
   },
 ] as const;
