@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, MessageCircle } from 'lucide-react';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 import { LinkedInIcon, GitHubIcon } from '@/components/ui/social-icons';
 import { siteConfig } from '@/config/site';
 import { ContactForm } from '@/components/ui/contact-form';
@@ -36,24 +37,6 @@ const CONTACT_ITEMS = [
 
 /* ─── Sub-components ─────────────────────────────────────────────────── */
 
-function SectionHeader() {
-  return (
-    <div className="mb-16 flex flex-col items-center text-center">
-      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-        <MessageCircle className="h-3.5 w-3.5" />
-        Contact
-      </div>
-      <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-        Vous avez un projet&nbsp;?
-      </h2>
-      <p className="mt-4 max-w-xl text-center text-lg text-muted-foreground">
-        Envoyez-moi votre id&eacute;e, je vous r&eacute;ponds avec une
-        premi&egrave;re estimation gratuite sous 24&nbsp;h.
-      </p>
-    </div>
-  );
-}
-
 function ContactInfoCard({
   icon: Icon,
   label,
@@ -72,7 +55,7 @@ function ContactInfoCard({
         <Icon className="h-5 w-5" strokeWidth={1.5} />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/60">
+        <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/80">
           {label}
         </p>
         <p className="mt-0.5 truncate text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -173,8 +156,8 @@ function PageFooter() {
         </div>
 
         {/* Col 3 — stack */}
-        <p className="text-xs text-muted-foreground/50 md:text-right">
-          Propuls&eacute; par Next.js&nbsp;16 &amp; Tailwind&nbsp;v4
+        <p className="text-xs text-muted-foreground/70 md:text-right">
+          Propulsé par Next.js &amp; Tailwind v4
         </p>
       </div>
     </footer>
@@ -193,7 +176,11 @@ export function Contact() {
         </div>
 
         <div className="mx-auto max-w-5xl">
-          <SectionHeader />
+          <SectionHeader
+            badge={<><MessageCircle className="h-3.5 w-3.5" />Contact</>}
+            title="Vous avez un projet ?"
+            subtitle="Envoyez-moi votre idée, je vous réponds avec une première estimation gratuite sous 24 h."
+          />
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <ContactInfoColumn />

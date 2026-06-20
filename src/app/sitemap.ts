@@ -1,32 +1,13 @@
 import type { MetadataRoute } from 'next';
-
-const BASE_URL = 'https://mosiah-dev.vercel.app';
+import { siteConfig } from '@/config/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: BASE_URL,
+      url: siteConfig.url,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
-    },
-    {
-      url: `${BASE_URL}/#projets`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/#apropos`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/#contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
     },
   ];
 }

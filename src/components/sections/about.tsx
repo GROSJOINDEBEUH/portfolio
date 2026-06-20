@@ -1,6 +1,6 @@
 import { Network, Headphones, Globe, User, Briefcase, GraduationCap } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 import { ExpertiseCard } from '@/components/ui/ExpertiseCard';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 import { expertiseData } from '@/data/expertise';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
@@ -40,24 +40,11 @@ const TIMELINE = [
 
 /* ─── Sub-components ─────────────────────────────────────────────────── */
 
-function SectionHeader() {
-  return (
-    <div className="mb-16 flex flex-col items-center text-center">
-      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-        <User className="h-3.5 w-3.5" />
-        À propos
-      </div>
-      <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-        Mon Parcours &amp; Expertise
-      </h2>
-    </div>
-  );
-}
 
 function CareerTimeline() {
   return (
     <div className="mt-8 rounded-xl border border-border bg-zinc-900/30 p-5">
-      <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted-foreground/60">
+      <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted-foreground/80">
         Parcours
       </p>
       <div className="flex flex-col gap-0">
@@ -121,52 +108,51 @@ function NarrativeColumn() {
 
       <div className="mt-6 flex flex-col gap-5 text-[0.95rem] leading-relaxed text-muted-foreground">
         <p>
-          Apr&egrave;s avoir d&eacute;couvert le dev en start-up chez{' '}
+          Après avoir découvert le dev en start-up chez{' '}
           <strong className="font-semibold text-foreground/90">
             Hilt Technology Engineering
           </strong>
-          , j&apos;ai structur&eacute; mes comp&eacute;tences en suivant{' '}
+          , j'ai structuré mes compétences en suivant{' '}
           <strong className="font-semibold text-foreground/90">
             9 mois de formation intensive
           </strong>{' '}
-          de D&eacute;veloppeur Web &agrave; l&apos;
+          de Développeur Web à l'
           <strong className="font-semibold text-foreground/90">
             IDEM (École du Numérique au Soler)
           </strong>
-          . Compl&egrave;tement autodidacte par la suite, j&apos;ai
-          continu&eacute; &agrave; me former de mon c&ocirc;t&eacute; pour
-          ma&icirc;triser les architectures modernes les plus
-          performantes&nbsp;:{' '}
-          <span style={{ color: '#22d3ee' }}>Next.js</span>,{' '}
-          <span style={{ color: '#22d3ee' }}>Tailwind&nbsp;v4</span>.
+          . Complètement autodidacte par la suite, j'ai continué à me former
+          pour maîtriser les architectures modernes les plus performantes :{' '}
+          <span className="text-primary">Next.js</span>,{' '}
+          <span className="text-primary">Tailwind v4</span>.
         </p>
         <p>
-          Ma curiosit&eacute; pour les infrastructures me conduit ensuite vers
-          les r&eacute;seaux t&eacute;l&eacute;coms. En tant que{' '}
+          Ma curiosité pour les infrastructures m'a conduit vers les réseaux
+          télécoms. En tant que{' '}
           <strong className="font-semibold text-foreground/90">
-            Charg&eacute; d&apos;&eacute;tudes en r&eacute;seau FTTH
+            Chargé d'études réseau FTTH
           </strong>
-          , j&apos;acquiers la rigueur des infrastructures et l&apos;importance
-          d&apos;une base solide &mdash; des qualit&eacute;s qui irriguent
-          encore mon code aujourd&apos;hui.
-        </p>
-        <p>
-          Aujourd&apos;hui{' '}
+          , j'ai acquis une rigueur de conception d'infrastructure — chaque
+          décision impactant des dizaines de kilomètres de fibre. Cette exigence
+          du{' '}
           <strong className="font-semibold text-foreground/90">
-            Technicien HelpDesk pour des grands comptes
+            zéro défaut
           </strong>{' '}
-          (GRDF via Computacenter), je g&egrave;re le support de bout en bout,
-          ce qui m&apos;a forg&eacute; un relationnel client &agrave; toute
-          &eacute;preuve et une forte capacit&eacute; de problem-solving.
+          irrigue directement la qualité de mon code aujourd'hui.
         </p>
         <p>
-          En parall&egrave;le, ma passion pour l&apos;assemblage de hardware et
-          le d&eacute;veloppement m&apos;a pouss&eacute; &agrave;
-          ma&icirc;triser la cr&eacute;ation d&apos;applications web modernes.
-          R&eacute;sultat&nbsp;: je con&ccedil;ois des sites vitrines, des
-          dashboards complexes et des plateformes e-commerce sur mesure avec la
-          m&ecirc;me exigence technique que pour le d&eacute;ploiement d&apos;une{' '}
-          <strong className="font-semibold" style={{ color: '#22d3ee' }}>
+          Mon expérience en{' '}
+          <strong className="font-semibold text-foreground/90">
+            support grands comptes
+          </strong>{' '}
+          (GRDF via Computacenter) m'a forgé un sens aigu du
+          problem-solving sous pression et une relation client premium — je
+          comprends les besoins métiers avant de coder la solution.
+        </p>
+        <p>
+          Résultat : je conçois des sites vitrines, des dashboards complexes et
+          des plateformes e-commerce sur mesure avec la même exigence technique
+          que pour le déploiement d'une{' '}
+          <strong className="font-semibold text-primary">
             fibre optique.
           </strong>
         </p>
@@ -199,7 +185,10 @@ export function About() {
       </div>
 
       <div className="mx-auto max-w-5xl">
-        <SectionHeader />
+        <SectionHeader
+          badge={<><User className="h-3.5 w-3.5" />À propos</>}
+          title="Mon Parcours & Expertise"
+        />
 
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           <div className="w-full lg:w-1/3">

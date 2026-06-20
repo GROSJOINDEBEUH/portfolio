@@ -8,7 +8,7 @@ type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
 const INPUT_BASE =
   'w-full rounded-lg border border-border bg-zinc-900/50 px-4 py-3 text-sm text-foreground ' +
-  'placeholder:text-muted-foreground/40 transition-colors duration-200 ' +
+  'placeholder:text-muted-foreground/50 transition-colors duration-200 ' +
   'focus:border-primary focus:outline-none';
 
 export function ContactForm() {
@@ -113,7 +113,7 @@ export function ContactForm() {
         <select
           id="projectType"
           name="projectType"
-          className={`${INPUT_BASE} cursor-pointer`}
+          className={`${INPUT_BASE} cursor-pointer focus-visible:ring-2 focus-visible:ring-primary/50`}
           defaultValue=""
         >
           <option value="" disabled>S&eacute;lectionnez un type&hellip;</option>
@@ -177,7 +177,7 @@ export function ContactForm() {
         </div>
       )}
 
-      <p className="text-center text-xs text-muted-foreground/50">
+      <p className="text-center text-xs text-muted-foreground/70">
         R&eacute;ponse garantie sous 24&nbsp;h.
       </p>
     </form>

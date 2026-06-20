@@ -52,7 +52,6 @@ function SliderContent({
             className="object-cover"
             sizes={imageSizes}
             quality={imageQuality}
-            priority
           />
         </div>
 
@@ -68,7 +67,6 @@ function SliderContent({
             className="object-cover"
             sizes={imageSizes}
             quality={imageQuality}
-            priority
             style={{ width: '100%', height: '100%' }}
           />
         </div>

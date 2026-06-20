@@ -16,6 +16,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mosiah Grandol Tamba',
+  url: 'https://mosiah-dev.vercel.app',
+  jobTitle: 'Développeur Web Freelance',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Freelance',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Perpignan',
+    addressRegion: 'Occitanie',
+    addressCountry: 'FR',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/mosiah-grandol',
+    'https://github.com/GROSJOINDEBEUH',
+  ],
+  description:
+    'Développeur web freelance spécialisé en sites modernes, rapides et optimisés SEO pour restaurants, commerces, indépendants et applications sur-mesure.',
+  knowsAbout: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'SEO', 'Shopify'],
+};
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -76,6 +101,13 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} dark`}
     >
+      <head>
+        <meta name="theme-color" content="#09090b" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <Header />
         {children}

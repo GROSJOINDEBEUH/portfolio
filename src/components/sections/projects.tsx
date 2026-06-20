@@ -5,11 +5,11 @@ import {
   Globe,
   BarChart2,
   Sparkles,
-  ArrowRight,
   ExternalLink,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ProjectCard } from '@/components/ui/ProjectCard';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 
 /* ─── Data ───────────────────────────────────────────────────────────── */
 
@@ -68,23 +68,6 @@ const SECONDARY = [
 
 /* ─── Sub-components ─────────────────────────────────────────────────── */
 
-function SectionHeader() {
-  return (
-    <div className="mb-16 flex flex-col items-center text-center">
-      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-        <Sparkles className="h-3.5 w-3.5" />
-        Projets
-      </div>
-      <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-        Mes Réalisations
-      </h2>
-      <p className="mt-4 max-w-xl text-lg text-muted-foreground">
-        Des projets concrets, orientés performance, SEO et expérience
-        utilisateur.
-      </p>
-    </div>
-  );
-}
 
 function PhoneMockup({ url }: { url: string }) {
   return (
@@ -171,11 +154,11 @@ function FeaturedProject() {
           {/* Case study — Problème / Solution / Résultat */}
           <div className="flex flex-col gap-3 text-sm">
             <div>
-              <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground/50">Problème</p>
+              <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground/80">Problème</p>
               <p className="leading-relaxed text-muted-foreground">{FEATURED.problem}</p>
             </div>
             <div>
-              <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground/50">Solution</p>
+              <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground/80">Solution</p>
               <p className="leading-relaxed text-muted-foreground">{FEATURED.solution}</p>
             </div>
             <div>
@@ -213,13 +196,13 @@ function ComingSoonCard() {
   return (
     <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-border/50 bg-card/20 p-8 text-center">
       <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-secondary/50">
-        <ArrowRight className="h-5 w-5 text-muted-foreground/50" />
+        <Sparkles className="h-5 w-5 text-muted-foreground/70" />
       </div>
       <div>
         <p className="text-sm font-medium text-muted-foreground/70">
           D'autres projets arrivent
         </p>
-        <p className="mt-1 text-xs text-muted-foreground/40">
+        <p className="mt-1 text-xs text-muted-foreground/70">
           En cours de développement…
         </p>
       </div>
@@ -233,7 +216,11 @@ export function Projects() {
   return (
     <section id="projets" className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
-        <SectionHeader />
+        <SectionHeader
+          badge={<><Sparkles className="h-3.5 w-3.5" />Projets</>}
+          title="Mes Réalisations"
+          subtitle="Des projets concrets, orientés performance, SEO et expérience utilisateur."
+        />
 
         {/* Featured project */}
         <FeaturedProject />

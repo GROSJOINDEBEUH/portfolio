@@ -1,4 +1,5 @@
 import { Monitor, LayoutDashboard, Gauge, Wrench, ShoppingCart } from 'lucide-react';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const SERVICES = [
   {
@@ -71,20 +72,15 @@ export function Services() {
   return (
     <section id="services" className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
+        {/* Divider */}
+        <div className="mb-16 h-px bg-gradient-to-r from-transparent via-border to-transparent md:mb-24" />
+
         {/* Section header */}
-        <div className="mb-16 flex flex-col items-center text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-            <Wrench className="h-3.5 w-3.5" strokeWidth={1.5} />
-            Services
-          </div>
-          <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Ce que je peux faire pour vous
-          </h2>
-          <p className="mt-4 max-w-xl text-lg text-muted-foreground">
-            Des solutions web concrètes, pensées pour votre activité — pas
-            seulement pour votre stack technique.
-          </p>
-        </div>
+        <SectionHeader
+          badge={<><Wrench className="h-3.5 w-3.5" strokeWidth={1.5} />Services</>}
+          title="Ce que je peux faire pour vous"
+          subtitle="Des solutions web concrètes, pensées pour votre activité — pas seulement pour votre stack technique."
+        />
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
